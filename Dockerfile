@@ -56,4 +56,8 @@ RUN mkdir /bzt-configs \
 ENV LANG en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 WORKDIR /bzt-configs
-ENTRYPOINT ["sh", "entrypoint.sh"]
+
+COPY entrypoint.sh /usr/local/bin/docker-entrypoint
+RUN chmod +x /usr/local/bin/docker-entrypoint
+WORKDIR /srv/app
+ENTRYPOINT ["docker-entrypoint"]
