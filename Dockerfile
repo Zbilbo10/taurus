@@ -57,4 +57,5 @@ ENV LANG en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 WORKDIR /bzt-configs
 
-ENTRYPOINT ["sh", "entrypoint"]
+RUN chmod +x ./entrypoint
+ENTRYPOINT ["./entrypoint"]
