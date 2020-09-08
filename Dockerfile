@@ -2,6 +2,9 @@ FROM ubuntu:18.04
 
 ENV DBUS_SESSION_BUS_ADDRESS=/dev/null DEBIAN_FRONTEND=noninteractive APT_INSTALL="apt-get -y install --no-install-recommends"
 
+COPY entrypoint.sh /usr/local/bin/entrypoint
+RUN chmod +x /usr/local/bin/entrypoint
+
 WORKDIR /tmp
 ADD https://dl-ssl.google.com/linux/linux_signing_key.pub /tmp
 ADD https://deb.nodesource.com/setup_12.x /tmp
@@ -57,5 +60,4 @@ ENV LANG en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 WORKDIR /bzt-configs
 
-RUN chmod +x /entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["entrypoint"]
