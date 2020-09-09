@@ -61,4 +61,3 @@ ENV LC_ALL en_US.UTF-8
 WORKDIR /bzt-configs
 
 ENTRYPOINT ["entrypoint"]
-RUN tail -f /dev/null
